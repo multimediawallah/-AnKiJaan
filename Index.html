@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankit & Gunjan | Wedding Invitation</title>
+    
+    <!-- 1. Tailwind CSS (Styling without writing CSS files) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 2. Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- 3. Fonts (Google Fonts) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- 4. Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Quicksand', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        rose: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth scrolling for the whole page */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom Background Pattern */
+        .bg-pattern {
+            background-image: radial-gradient(#FECDD3 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-[#FFF5F7] text-stone-800 selection:bg-rose-200 selection:text-rose-900 overflow-x-hidden">
+
+    <!-- Background Pattern -->
+    <div class="fixed inset-0 opacity-40 pointer-events-none z-0 bg-pattern"></div>
+
+    <!-- Navigation -->
+    <!-- FIXED: Changed className to class to prevent the white overlay bug -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-rose-100 shadow-sm transition-all duration-300">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center relative z-50">
+            <div class="text-2xl font-serif text-rose-600 font-bold tracking-tight flex items-center">
+                A <i data-lucide="heart" class="w-4 h-4 text-red-500 fill-current mx-1"></i> G
+            </div>
+            <button onclick="handleRSVP()" class="bg-rose-500 text-white px-5 py-1.5 rounded-full hover:bg-rose-600 transition-all shadow-md flex items-center gap-2 text-sm font-medium transform hover:scale-105">
+                RSVP <i data-lucide="phone" class="w-3 h-3"></i>
+            </button>
+        </div>
+        <div class="absolute inset-0 bg-white/80 backdrop-blur-md z-40 border-b border-rose-100"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-24 pb-12 px-4 flex flex-col items-center justify-center min-h-[90vh]">
+        <div class="relative z-10 w-full max-w-md mx-auto bg-white p-2 rounded-[3rem] shadow-2xl border-4 border-rose-100 animate-float">
+            <!-- Sticker Label -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 bg-rose-100 text-rose-700 px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase border border-rose-200 shadow-sm z-20">
+                Save The Date
+            </div>
+
+            <!-- Inner Content -->
+            <div class="h-full w-full border-2 border-dashed border-rose-300 rounded-[2.5rem] p-8 flex flex-col items-center text-center bg-gradient-to-b from-white to-rose-50/50">
+                
+                <div class="text-rose-300 mb-6 opacity-70">
+                    <i data-lucide="sparkles" class="w-10 h-10"></i>
+                </div>
+
+                <h2 class="font-serif text-2xl text-stone-500 mb-2">We Are Getting Married</h2>
+                
+                <div class="relative my-8">
+                    <h1 class="font-serif text-6xl md:text-7xl text-rose-600 leading-tight drop-shadow-sm">
+                        Ankit
+                        <span class="block text-3xl text-stone-400 font-light my-2 font-sans">&</span>
+                        Gunjan
+                    </h1>
+                </div>
+
+                <div class="w-16 h-1 bg-rose-200 rounded-full mb-8"></div>
+
+                <p class="text-lg font-bold text-stone-600 mb-2">
+                    10th - 12th December, 2025
+                </p>
+                <p class="text-stone-500 mb-8 font-serif italic text-lg">
+                    Grand Palace Hotel, Udaipur
+                </p>
+
+                <!-- Countdown -->
+                <div id="countdown" class="grid grid-cols-4 gap-2 w-full mb-8">
+                    <!-- Javascript will fill this -->
+                </div>
+
+                <a href="#events" class="text-rose-400 hover:text-rose-600 animate-bounce mt-4">
+                    <i data-lucide="chevron-down" class="w-8 h-8"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section id="story" class="py-16 px-4">
+        <div class="max-w-2xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-serif text-rose-700">Our Love Story</h2>
+                <div class="flex justify-center mt-2">
+                    <div class="w-24 h-1 bg-gradient-to-r from-transparent via-rose-300 to-transparent"></div>
+                </div>
+            </div>
+
+            <div class="relative border-l-2 border-dashed border-rose-300 ml-6 md:ml-1/2 space-y-12 pb-8">
+                
+                <!-- Story 1 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-rose-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="md:flex md:justify-between md:items-center w-full">
+                        <div class="md:w-[45%] md:text-right md:pr-8 mb-2 md:mb-0 order-1">
+                            <div class="inline-block p-3 bg-blue-100 rounded-full text-blue-500 mb-2">
+                                <i data-lucide="coffee" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-stone-700">First Meeting</h3>
+                            <p class="text-sm text-stone-500 mt-1">Coffee shop conversations that never ended. We knew there was a spark instantly.</p>
+                        </div>
+                        <div class="md:w-[45%] order-2"></div>
+                    </div>
+                </div>
+
+                <!-- Story 2 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-rose-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="md:flex md:justify-between md:items-center w-full">
+                        <div class="md:w-[45%] order-1"></div>
+                        <div class="md:w-[45%] md:pl-8 mb-2 md:mb-0 order-2">
+                            <div class="inline-block p-3 bg-red-100 rounded-full text-red-500 mb-2">
+                                <i data-lucide="heart" class="w-6 h-6 fill-current"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-stone-700">The Proposal</h3>
+                            <p class="text-sm text-stone-500 mt-1">A sunset, a ring, and a promise forever. The easiest "Yes" ever said.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Events -->
+    <section id="events" class="py-16 px-4 relative">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16 relative z-10">
+                <div class="inline-block px-4 py-1 rounded-full bg-rose-100 text-rose-600 text-xs font-bold tracking-widest mb-2 border border-rose-200">
+                    ITINERARY
+                </div>
+                <h2 class="text-4xl font-serif text-stone-800">Wedding Celebrations</h2>
+                <p class="text-stone-500 mt-2 font-light">Join us in our joy</p>
+            </div>
+
+            <div class="relative">
+                <!-- Center Line -->
+                <div class="absolute left-8 md:left-1/2 top-4 bottom-4 w-0.5 border-r-2 border-dashed border-rose-300 transform md:-translate-x-1/2"></div>
+
+                <div class="space-y-16" id="events-container">
+                    <!-- Event 1 -->
+                    <div class="relative flex flex-col md:flex-row items-center md:flex-row-reverse">
+                        <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:translate-y-0 z-20 top-0 md:top-auto">
+                            <div class="bg-white border-2 border-amber-200 text-amber-600 text-xs font-bold px-3 py-1 rounded-full shadow-sm whitespace-nowrap">Dec 10</div>
+                        </div>
+                        <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-8 md:top-0 z-10">
+                            <div class="w-16 h-16 rounded-full border-4 border-white shadow-lg flex items-center justify-center bg-amber-100 text-amber-600">
+                                <i data-lucide="star" class="w-8 h-8"></i>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-[42%] ml-20 md:ml-0 mt-6 md:mt-0">
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-amber-100 relative group hover:-translate-y-1 transition-transform duration-300">
+                                <h3 class="text-xl font-serif font-bold text-stone-800 mb-1">Ganesh Pooja</h3>
+                                <div class="flex items-center gap-2 text-xs font-bold text-amber-500 uppercase tracking-wide mb-3">
+                                    <i data-lucide="clock" class="w-3 h-3"></i> 10:00 AM
+                                </div>
+                                <p class="text-stone-600 text-sm mb-4">Invoking blessings for a new beginning.</p>
+                                <div class="flex items-center gap-2 text-stone-400 text-xs border-t border-stone-100 pt-3">
+                                    <i data-lucide="map-pin" class="w-3 h-3"></i> Gunjan's Residence
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden md:block w-[42%]"></div>
+                    </div>
+
+                    <!-- Event 2 -->
+                    <div class="relative flex flex-col md:flex-row items-center">
+                        <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:translate-y-0 z-20 top-0 md:top-auto">
+                            <div class="bg-white border-2 border-pink-200 text-pink-600 text-xs font-bold px-3 py-1 rounded-full shadow-sm whitespace-nowrap">Dec 11</div>
+                        </div>
+                        <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-8 md:top-0 z-10">
+                            <div class="w-16 h-16 rounded-full border-4 border-white shadow-lg flex items-center justify-center bg-pink-100 text-pink-600">
+                                <i data-lucide="music" class="w-8 h-8"></i>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-[42%] ml-20 md:ml-0 mt-6 md:mt-0">
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-pink-100 relative group hover:-translate-y-1 transition-transform duration-300">
+                                <h3 class="text-xl font-serif font-bold text-stone-800 mb-1">Mehendi & Sangeet</h3>
+                                <div class="flex items-center gap-2 text-xs font-bold text-pink-500 uppercase tracking-wide mb-3">
+                                    <i data-lucide="clock" class="w-3 h-3"></i> 4:00 PM
+                                </div>
+                                <p class="text-stone-600 text-sm mb-4">Henna, dance, and musical beats.</p>
+                                <div class="flex items-center gap-2 text-stone-400 text-xs border-t border-stone-100 pt-3">
+                                    <i data-lucide="map-pin" class="w-3 h-3"></i> The Royal Gardens
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden md:block w-[42%]"></div>
+                    </div>
+
+                    <!-- Event 3 -->
+                    <div class="relative flex flex-col md:flex-row items-center md:flex-row-reverse">
+                        <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:translate-y-0 z-20 top-0 md:top-auto">
+                            <div class="bg-white border-2 border-red-200 text-red-600 text-xs font-bold px-3 py-1 rounded-full shadow-sm whitespace-nowrap">Dec 12</div>
+                        </div>
+                        <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-8 md:top-0 z-10">
+                            <div class="w-16 h-16 rounded-full border-4 border-white shadow-lg flex items-center justify-center bg-red-100 text-red-600">
+                                <i data-lucide="flame" class="w-8 h-8"></i>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-[42%] ml-20 md:ml-0 mt-6 md:mt-0">
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-red-100 relative group hover:-translate-y-1 transition-transform duration-300">
+                                <h3 class="text-xl font-serif font-bold text-stone-800 mb-1">The Wedding</h3>
+                                <div class="flex items-center gap-2 text-xs font-bold text-red-500 uppercase tracking-wide mb-3">
+                                    <i data-lucide="clock" class="w-3 h-3"></i> 10:00 AM
+                                </div>
+                                <p class="text-stone-600 text-sm mb-4">The Pheras & Varmala ceremony.</p>
+                                <div class="flex items-center gap-2 text-stone-400 text-xs border-t border-stone-100 pt-3">
+                                    <i data-lucide="map-pin" class="w-3 h-3"></i> Grand Palace Hotel
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden md:block w-[42%]"></div>
+                    </div>
+
+                    <!-- Event 4 -->
+                    <div class="relative flex flex-col md:flex-row items-center">
+                        <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:translate-y-0 z-20 top-0 md:top-auto">
+                            <div class="bg-white border-2 border-purple-200 text-purple-600 text-xs font-bold px-3 py-1 rounded-full shadow-sm whitespace-nowrap">Dec 12</div>
+                        </div>
+                        <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-8 md:top-0 z-10">
+                            <div class="w-16 h-16 rounded-full border-4 border-white shadow-lg flex items-center justify-center bg-purple-100 text-purple-600">
+                                <i data-lucide="gift" class="w-8 h-8"></i>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-[42%] ml-20 md:ml-0 mt-6 md:mt-0">
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-purple-100 relative group hover:-translate-y-1 transition-transform duration-300">
+                                <h3 class="text-xl font-serif font-bold text-stone-800 mb-1">Reception</h3>
+                                <div class="flex items-center gap-2 text-xs font-bold text-purple-500 uppercase tracking-wide mb-3">
+                                    <i data-lucide="clock" class="w-3 h-3"></i> 7:00 PM
+                                </div>
+                                <p class="text-stone-600 text-sm mb-4">Dinner, drinks, and celebration.</p>
+                                <div class="flex items-center gap-2 text-stone-400 text-xs border-t border-stone-100 pt-3">
+                                    <i data-lucide="map-pin" class="w-3 h-3"></i> Grand Ball Room
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden md:block w-[42%]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue (Graphical) -->
+    <section class="py-12 px-4">
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-rose-100">
+           <div class="bg-rose-50 p-8 text-center border-b border-dashed border-rose-200">
+              <h2 class="text-2xl font-serif text-rose-800 mb-2">The Royal Venue</h2>
+              <p class="text-rose-600 font-medium">Grand Palace Hotel, Udaipur</p>
+           </div>
+           
+           <!-- CSS Drawing of Palace/Scenery -->
+           <div class="relative h-64 bg-sky-50 flex items-end justify-center overflow-hidden">
+              <div class="absolute bottom-0 w-full h-8 bg-emerald-100 border-t-4 border-emerald-200"></div>
+              
+              <!-- Palace Shape -->
+              <div class="flex items-end gap-1 mb-8 opacity-80">
+                 <div class="w-16 h-24 bg-orange-100 rounded-t-full border-4 border-orange-200"></div>
+                 <div class="w-32 h-40 bg-orange-100 rounded-t-full border-4 border-orange-200 relative">
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-20 bg-orange-200 rounded-t-full border-t-4 border-white"></div>
+                 </div>
+                 <div class="w-16 h-24 bg-orange-100 rounded-t-full border-4 border-orange-200"></div>
+              </div>
+              
+              <!-- Clouds -->
+              <div class="absolute top-8 left-12 text-white/80"><i data-lucide="cloud" class="w-12 h-12 fill-white"></i></div>
+              <div class="absolute top-12 right-24 text-white/80"><i data-lucide="cloud" class="w-8 h-8 fill-white"></i></div>
+           </div>
+
+           <div class="p-6 text-center">
+              <button onclick="window.open('https://maps.google.com', '_blank')" class="text-sm font-bold text-rose-500 hover:text-rose-700 underline decoration-dashed underline-offset-4 cursor-pointer">
+                 View Location on Map
+              </button>
+           </div>
+        </div>
+     </section>
+
+     <!-- RSVP Section -->
+     <section id="rsvp" class="py-20 px-4">
+        <div class="max-w-md mx-auto relative">
+          
+          <div class="bg-white rounded-[2rem] p-8 text-center shadow-[0_20px_50px_-12px_rgba(255,182,193,0.5)] border-4 border-rose-100 relative overflow-hidden z-10">
+             
+             <!-- Decor -->
+             <div class="absolute top-0 left-0 w-24 h-24 bg-rose-50 rounded-br-[4rem] -translate-x-4 -translate-y-4"></div>
+             <div class="absolute bottom-0 right-0 w-24 h-24 bg-rose-50 rounded-tl-[4rem] translate-x-4 translate-y-4"></div>
+
+             <div class="relative z-10">
+                <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                   <i data-lucide="phone" class="w-8 h-8"></i>
+                </div>
+                
+                <h2 class="text-3xl font-serif text-stone-800 mb-2">RSVP</h2>
+                <p class="text-stone-500 mb-8">Please confirm your presence by December 1st</p>
+                
+                <button
+                  onclick="handleRSVP()"
+                  class="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 rounded-xl shadow-lg transform transition hover:scale-105 flex items-center justify-center gap-2"
+                >
+                  <i data-lucide="message-circle" class="w-5 h-5"></i>
+                  <span>Confirm via WhatsApp</span>
+                </button>
+             </div>
+          </div>
+
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[90%] bg-rose-200 rounded-[2.5rem] -rotate-3 z-0 opacity-50"></div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="text-center py-12 text-rose-300 bg-white border-t border-rose-50">
+         <div class="flex justify-center mb-4">
+             <i data-lucide="heart" class="w-6 h-6 animate-pulse fill-rose-100"></i>
+         </div>
+         <p class="font-serif text-lg text-rose-400">#AnKiJaan</p>
+         <p class="text-xs mt-2 text-rose-200">2025</p>
+      </footer>
+
+      <!-- Music Toggle -->
+      <button onclick="toggleMusic()" class="fixed bottom-6 right-6 z-40 bg-rose-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform hover:bg-rose-600 ring-4 ring-rose-200">
+          <i id="music-icon" data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
+      </button>
+
+      <!-- Hidden Audio Element (Add your own MP3 URL here) -->
+      <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+      </audio>
+
+    <!-- Scripts -->
+    <script>
+        // 1. Initialize Icons
+        lucide.createIcons();
+
+        // 2. RSVP Function
+        function handleRSVP() {
+            window.open('https://wa.link/vo2toq', '_blank');
+        }
+
+        // 3. Music Toggle Logic
+        const music = document.getElementById('bg-music');
+        const musicIcon = document.getElementById('music-icon');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicIcon.setAttribute('data-lucide', 'play');
+                musicIcon.classList.remove('ml-0');
+                musicIcon.classList.add('ml-0.5'); // Visual adjustment for play icon center
+            } else {
+                music.play().catch(e => alert("Please interact with the page first (Chrome policy)"));
+                musicIcon.setAttribute('data-lucide', 'pause');
+                musicIcon.classList.remove('ml-0.5');
+                musicIcon.classList.add('ml-0');
+            }
+            isPlaying = !isPlaying;
+            lucide.createIcons(); // Re-render icon
+        }
+
+        // 4. Countdown Timer Logic
+        const weddingDate = new Date('2025-12-12T10:00:00').getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = weddingDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                const renderBox = (val, label) => `
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-rose-100 border border-rose-200 flex items-center justify-center text-rose-700 font-bold text-lg shadow-inner">
+                            ${val}
+                        </div>
+                        <span class="text-[10px] uppercase mt-1 text-rose-400 font-bold">${label}</span>
+                    </div>
+                `;
+
+                document.getElementById('countdown').innerHTML = 
+                    renderBox(days, 'Days') +
+                    renderBox(hours, 'Hrs') +
+                    renderBox(minutes, 'Mins') +
+                    renderBox(seconds, 'Secs');
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+    </script>
+</body>
+</html>
